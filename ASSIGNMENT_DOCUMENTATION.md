@@ -245,18 +245,40 @@ public static void logExecution(String message) {
 
 ### Critical Section #3: CPU Semaphore
 
-**Purpose of semaphore**: 
+**Purpose of semaphore**: The primary purpose of the cpuSemaphore is to control concurrent access to the CPU
 
-**Number of permits and why**: 
+**Number of permits and why**: 1 (Binary Semaphore)
+Since the simulation models a single-core CPU only one process can be handled at a time
 
-**Where implemented**: 
+**Where implemented**: Shared Definition
+Usage Logic
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+// Definition in SharedResources class
+public static final Semaphore cpuSemaphore = new Semaphore(1);
+
+// Implementation in Process class run() method
+public void run() {
+    try {
+        // Acquire the permit to use the CPU
+        SharedResources.cpuSemaphore.acquire();
+        try {
+            // ... critical section: process execution logic ...
+            SharedResources.incrementContextSwitch();
+            // ... execution simulation ...
+        } finally {
+            // Always release the permit to prevent deadlock
+            SharedResources.cpuSemaphore.release();
+        }
+    } catch (InterruptedException e) {
+        System.out.println("Semaphore interrupted.");
+    }
+}
+
 ```
 
-**Effect on program behavior**: 
+**Effect on program behavior**: The semaphore ensures that even if multiple threads are "ready," only one thread can enter the critical section and execute
 
 ---
 
