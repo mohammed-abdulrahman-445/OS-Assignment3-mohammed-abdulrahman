@@ -1,8 +1,8 @@
 # Assignment 3 - Complete Documentation
 
-**Student Name**: [Your Full Name]  
-**Student ID**: [Your ID]  
-**Date Submitted**: [Submission Date]
+**Student Name**: [Mohammed abdulrahman khal]  
+**Student ID**: [445050228]  
+**Date Submitted**: [30 april]
 
 ---
 
@@ -417,16 +417,16 @@ A thread "locks" the variable, updates it, and then "unlocks" it so others can u
 
 ## Summary
 
-**Total time spent on assignment**: 
+**Total time spent on assignment**: 4 or 5 hour
 
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1. Learned how to apply ReentrantLock and Semaphore
+2. Understood that shared resources like ArrayList
+3. Realized the critical importance of using try-finally blocks
 
-**Most challenging aspect**: 
+**Most challenging aspect**: The most challenging part was implementing "Fine-Grained Locking" correctly
 
-**What I'm most proud of**: 
+**What I'm most proud of**: Mastery of Synchronization Tools
 
 ---
 
