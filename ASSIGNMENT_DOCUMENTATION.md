@@ -335,11 +335,20 @@ Lock Performance
 ### Test 3: Correctness Verification
 **What I tested**: Verifying correct final values (total burst time, context switches, etc.)
 
-**Expected values**: 
+**Expected values**: Completed Processes:Must exactly equal the number of processes
+Context Switches:Should be at least equal to the number of processes
+Total Waiting Time:Must be the sum of each process's finish time
+
 
 **Actual values**: 
+Completed Processes:Match
+Context Switches:Correctly incremented for every CPU burst entry
+Total Waiting Time:Summed accurately without lost
+
+
 
 **Analysis**: 
+The alignment between expected and actual values proves that the ReentrantLock for counters and the cpuSemaphore are functioning perfectly
 
 ---
 
