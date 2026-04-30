@@ -31,16 +31,17 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
-**What I implemented**: 
+### Entry 1 - [30 April, 7:01]
+**What I implemented**:Add ReentrantLock to protect (contextSwitchCount,
+completedProcessCount, totalWaitingTime) 
 
-**Challenges encountered**: 
+**Challenges encountered**: firs i dont now exactly to place lock() and unlock()
 
-**How I solved it**: 
+**How I solved it**: i used try finally blocks ensure that the lock is always released even if an error
 
-**Testing approach**: 
+**Testing approach**:I ran the program multiple times and became correct in every run
 
-**Time spent**: 
+**Time spent**: 1 h 
 
 ---
 
