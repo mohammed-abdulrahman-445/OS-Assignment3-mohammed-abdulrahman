@@ -386,9 +386,9 @@ blockleads to deadlocks that are very hard]
 
 Give TWO examples where synchronization is critical:
 
-**Example 1**: 
+**Example 1**: Flight Booking Systems
 
-**Example 2**: 
+**Example 2**: Medical Imaging Devices
 
 ---
 
