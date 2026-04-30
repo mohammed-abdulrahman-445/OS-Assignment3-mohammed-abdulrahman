@@ -320,10 +320,15 @@ Synchronization is critical in this multithreaded environment to prevent Race Co
 **What I tested**: Checking for ConcurrentModificationException
 
 **Testing procedure**: 
+I focused on the logExecution method and the section of the code where multiple process threads attempt to write to the shared ArrayList simultaneously
 
-**Results**: 
 
-**What this proves**: 
+**Results**: No Crashes
+Log Integrity
+Lock Performance
+
+
+**What this proves**: proves that the Fine-Grained Locking strategy implemented in the SharedResources class is effective
 
 ---
 
