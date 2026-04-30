@@ -54,31 +54,45 @@ class SharedResources {
     
     // Method to increment context switch counter
     public static void incrementContextSwitch() {
-        contextSwitchLock.lock(); // Acquire lock before modifying counter
+        contextSwitchLock.lock();// Acquire lock before modifying counter
         try {
             contextSwitchCount++;
         } finally {
-            contextSwitchLock.unlock(); // Always release lock in finally block
+            contextSwitchLock.unlock();// Always release lock in finally block
         }
     }
     
     // Method to increment completed process counter
     public static void incrementCompletedProcess() {
         // TODO: Protect this critical section with a lock
-        completedProcessCount++;
+        completedProcessLock.lock();
+        try {
+            completedProcessCount++;
+        } finally {
+            completedProcessLock.unlock();
+        }
     }
     
     // Method to add waiting time
     public static void addWaitingTime(long time) {
         // TODO: Protect this critical section with a lock
-        totalWaitingTime += time;
+         totalWaitingTimeLock.lock();
+        try {
+            totalWaitingTime += time;
+        } finally {
+            totalWaitingTimeLock.unlock();
+        }
     }
     
     // Method to log execution
     public static void logExecution(String message) {
         // TODO: Protect this critical section with a lock
-        // RACE CONDITION: ArrayList is not thread-safe!
-        executionLog.add(message);
+        logLock.lock();
+        try {
+            executionLog.add(message);
+        } finally {
+            logLock.unlock();
+        }
     }
 }
 
