@@ -35,10 +35,10 @@ class SharedResources {
     public static final ReentrantLock contextSwitchLock = new ReentrantLock(); //task1
     public static final ReentrantLock completedProcessLock = new ReentrantLock(); //task1
     public static final ReentrantLock totalWaitingTimeLock = new ReentrantLock(); //task1
-    public static final ReentrantLock logLock = new ReentrantLock();//the logLock is ArrayList-prevent concurrent modification exception in task2
+    public static final ReentrantLock logLock = new ReentrantLock(); //the logLock is ArrayList-prevent concurrent modification exception in task2
 
     //binary semaphore for CPU access
-    public static final Semaphore cpuSemaphore = new Semaphore(1);//task3
+    public static final Semaphore cpuSemaphore = new Semaphore(1); //task3
     
     
     public static int contextSwitchCount = 0;      // Shared counter - NEEDS PROTECTION!
