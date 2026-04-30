@@ -403,15 +403,15 @@ A thread "locks" the variable, updates it, and then "unlocks" it so others can u
 
 ## Part 6: GitHub Repository Information
 
-**Repository URL**: 
+**Repository URL**: https://github.com/mohammed-abdulrahman-445/OS-Assignment3-mohammed-abdulrahman.git
 
-**Number of commits**: 
+**Number of commits**: 29
 
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1. Set my student ID: 445050228
+2. add import for Semaphore and ReentrantLock
+3. Add ReentrantLock to protect counter variables
+4. Add ReentrantLock to protect execution log 
 
 ---
 
