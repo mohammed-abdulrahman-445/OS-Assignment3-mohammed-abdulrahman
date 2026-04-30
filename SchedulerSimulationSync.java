@@ -179,6 +179,7 @@ class Process implements Runnable {
                 System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
                                   Colors.RESET + Colors.BRIGHT_GREEN + " finished execution!" + 
                                   Colors.RESET);
+                T
             }
             System.out.println();
             
@@ -186,7 +187,8 @@ class Process implements Runnable {
             // TODO #4: Release CPU semaphore here
             // Always release in finally block to prevent deadlocks!
             SharedResources.cpuSemaphore.release();
-        }
+        }  catch (InterruptedException e) {
+            System.out.println(Colors.RED + "  ✗ " + name + " semaphore interrupted." + Colors.RESET);
     }
     
     private String createProgressBar(int progress, int width) {
