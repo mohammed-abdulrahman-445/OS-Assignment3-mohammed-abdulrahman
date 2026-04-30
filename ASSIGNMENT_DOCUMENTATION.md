@@ -107,7 +107,15 @@ completedProcessCount, totalWaitingTime)
 
 **Your Answer**:
 
-[Your answer here - 4-6 sentences with code examples]
+[In the original code, there are two race conditions.
+in race condition 1
+contextSwitchCount
+Because multiple threads increment it at the same time and the increment operation  is not atomic
+Some increments may be lost resulting in a lower than expected final value
+in race condition 2
+executionLog
+Because ArrayList is not thread safe, and multiple threads may modify it simultaneously
+It may cause a ConcurrentModificationException ]
 
 ---
 
