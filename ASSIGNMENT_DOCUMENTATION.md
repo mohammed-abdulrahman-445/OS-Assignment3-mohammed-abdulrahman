@@ -394,7 +394,10 @@ Give TWO examples where synchronization is critical:
 
 ### How I would explain synchronization to others:
 
-[Explain to someone who just finished Assignment 1 - use simple terms and analogies]
+[The Lock (ReentrantLock) – The Bathroom Key
+Think of a shared counter (like contextSwitchCount) as a bathroom. Only one person can have the key at a time.
+A thread "locks" the variable, updates it, and then "unlocks" it so others can use it.
+]
 
 ---
 
