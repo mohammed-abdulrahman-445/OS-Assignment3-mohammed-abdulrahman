@@ -353,13 +353,16 @@ The alignment between expected and actual values proves that the ReentrantLock f
 ---
 
 ### Test 4: Different Scenarios
-**Scenario tested**: [e.g., different time quantum, more processes, etc.]
+**Scenario tested**: Testing the simulation with a large number of processes and a very short time quantum
 
-**Purpose**: 
 
-**Results**: 
+**Purpose**: To stress-test the synchronization mechanisms under high contention
 
-**What I learned**: 
+**Results**: Performance Stability
+Log Accuracy
+Correct Calculations
+
+**What I learned**: I learned that "Fine-Grained Locking" is highly efficient because it allows threads to update different variables
 
 ---
 
