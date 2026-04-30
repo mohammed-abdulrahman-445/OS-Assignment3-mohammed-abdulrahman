@@ -215,18 +215,31 @@ public static void addWaitingTime(long time) {
 
 ### Critical Section #2: Execution Log
 
-**What resource**: 
+**What resource**: The resource is executionLog used by all threads to store execution logs
 
-**Why it needs protection**: 
+**Why it needs protection**: Because multiple threads may add elements to the list simultaneously is not thread-safe
+This can lead to issues such as ConcurrentModificationException
 
 **Synchronization mechanism used**: 
+A ReentrantLock 
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+public static final ReentrantLock logLock = new ReentrantLock();
+public static List<String> executionLog = new ArrayList<>();
+
+public static void logExecution(String message) {
+    logLock.lock();
+    try {
+        executionLog.add(message);
+    } finally {
+        logLock.unlock();
+    }
+}
+
 ```
 
-**Justification**: 
+**Justification**: Using ReentrantLock ensures that only one thread can modify the executionLog at a time
 
 ---
 
