@@ -45,16 +45,16 @@ completedProcessCount, totalWaitingTime)
 
 ---
 
-### Entry 2 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [30 April, 7:07]
+**What I implemented**: Add ReentrantLock (ArrayList - prevent ConcurrentModificationException)
 
-**Challenges encountered**: 
+**Challenges encountered**:I was unsure operations needed to be locked since multiple threads could access the list simultaneously
 
-**How I solved it**: 
+**How I solved it**: protect every  operation inside the logExecution() method using a lock,ensure that only one thread writes at a time
 
-**Testing approach**: 
+**Testing approach**: I ran the program with multiple processes and confirmed that no errors or crashes
 
-**Time spent**: 
+**Time spent**: 1.5 h
 
 ---
 
