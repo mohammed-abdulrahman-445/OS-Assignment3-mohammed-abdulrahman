@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
-// ANSI Color Codes for enhanced terminal output
 class Colors {
     public static final String RESET = "\u001B[0m";
     public static final String BOLD = "\u001B[1m";
@@ -29,7 +30,16 @@ class Colors {
 class SharedResources {
     // TODO: Students will add synchronization mechanisms here
     // HINT: Use ReentrantLock for mutual exclusion
-    // HINT: Use Semaphore for limiting concurrent access
+    // HINT: Use Semaphore to limit concurrent access to CPU
+    //Fine-grained locks for independent counters 
+    public static final ReentrantLock contextSwitchLock = new ReentrantLock();//task1
+    public static final ReentrantLock completedProcessLock = new ReentrantLock();//task1
+    public static final ReentrantLock totalWaitingTimeLock = new ReentrantLock();//task1
+    public static final ReentrantLock logLock = new ReentrantLock();//the logLock is ArrayList-prevent concurrent modification exception in task2
+
+    //binary semaphore for CPU access
+    public static final Semaphore cpuSemaphore = new Semaphore(1);//task3
+    
     
     public static int contextSwitchCount = 0;      // Shared counter - NEEDS PROTECTION!
     public static int completedProcessCount = 0;   // Shared counter - NEEDS PROTECTION!
@@ -44,9 +54,12 @@ class SharedResources {
     
     // Method to increment context switch counter
     public static void incrementContextSwitch() {
-        // TODO: Protect this critical section with a lock
-        // RACE CONDITION: Multiple threads might read and write simultaneously!
-        contextSwitchCount++;
+        contextSwitchLock.lock(); // Acquire lock before modifying counter
+        try {
+            contextSwitchCount++;
+        } finally {
+            contextSwitchLock.unlock(); // Always release lock in finally block
+        }
     }
     
     // Method to increment completed process counter
