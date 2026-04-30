@@ -287,18 +287,32 @@ public void run() {
 ### Test 1: Consistency Check
 **What I tested**: Running program multiple times to verify consistent results
 
-**Testing procedure**: 
+**Testing procedure**: I executed the following commands in the Visual Studio Code
 ```bash
-# Commands used (run the program at least 5 times)
+# Command to compile the Java file
+javac SchedulerSimulationSync.java
+
+# Commands to run the simulation 5 consecutive times
+java SchedulerSimulationSync
+java SchedulerSimulationSync
+java SchedulerSimulationSync
+java SchedulerSimulationSync
+java SchedulerSimulationSync
+
 ```
 
 **Results**: 
-(Show that running multiple times produces consistent, correct results)
+In all 5 runs, the "Total Completed Processes" exactly matched the number of processes
+The execution log size remained consistent, showing no missing entries or ConcurrentModificationException errors
+No two processes ever printed  simultaneously
+The Total Waiting Time was calculated correctly
+
 
 **Why synchronization is necessary**: 
-(Explain what race conditions COULD occur without synchronization, even if you didn't observe them. Explain which shared resources need protection and why.)
+Synchronization is critical in this multithreaded environment to prevent Race Conditions
 
-**Conclusion**: 
+
+**Conclusion**: The testing confirms that the synchronization implementation in SchedulerSimulationSync.java is successful. The locks and semaphores effectively manage the shared resources,
 
 ---
 
