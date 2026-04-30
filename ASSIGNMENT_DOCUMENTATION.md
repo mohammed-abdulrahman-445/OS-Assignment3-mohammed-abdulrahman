@@ -124,7 +124,9 @@ It may cause a ConcurrentModificationException ]
 
 **Your Answer**:
 
-[Your answer here - explain your implementation choices]
+[The difference between ReentrantLock and Semaphore is that a ReentrantLock is used to protect critical sections by allowing only one thread at a time, while a Semaphore is used to control how many threads can access a shared resource.
+In my code, I used ReentrantLock to protect shared variables such as contextSwitchCount completedProcessCount, totalWaitingTime, and the executionLog
+I used a Semaphore to control access to the CPU by implementing cpuSemaphore with a 1 permit]
 
 ---
 
