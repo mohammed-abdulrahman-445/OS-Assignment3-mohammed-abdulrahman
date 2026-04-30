@@ -32,9 +32,9 @@ class SharedResources {
     // HINT: Use ReentrantLock for mutual exclusion
     // HINT: Use Semaphore to limit concurrent access to CPU
     //Fine-grained locks for independent counters 
-    public static final ReentrantLock contextSwitchLock = new ReentrantLock();//task1
-    public static final ReentrantLock completedProcessLock = new ReentrantLock();//task1
-    public static final ReentrantLock totalWaitingTimeLock = new ReentrantLock();//task1
+    public static final ReentrantLock contextSwitchLock = new ReentrantLock(); //task1
+    public static final ReentrantLock completedProcessLock = new ReentrantLock(); //task1
+    public static final ReentrantLock totalWaitingTimeLock = new ReentrantLock(); //task1
     public static final ReentrantLock logLock = new ReentrantLock();//the logLock is ArrayList-prevent concurrent modification exception in task2
 
     //binary semaphore for CPU access
