@@ -370,7 +370,15 @@ Correct Calculations
 
 ### What I learned about synchronization:
 
-[6-8 sentences about key concepts, challenges, insights]
+[Race conditions:Synchronisation makes concurrent programs
+predictable
+Fine‑grained locking:protecting independent resources with separatelocks unlocks
+Synchronisation adds overhead, but the safety
+A binary Semaphore 1 is functionally similar
+The
+try‑finallypattern is non‑negotiable
+finally
+blockleads to deadlocks that are very hard]
 
 ---
 
