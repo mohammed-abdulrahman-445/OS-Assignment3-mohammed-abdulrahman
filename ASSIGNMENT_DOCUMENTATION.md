@@ -58,16 +58,16 @@ completedProcessCount, totalWaitingTime)
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
+### Entry 3 - [30 April, 7:11]
+**What I implemented**: I implemented a Semaphore with 1 permit to control access
 
-**Challenges encountered**: 
+**Challenges encountered**: It was difficult to  understand the difference between using a Lock and a Semaphore
 
-**How I solved it**: 
+**How I solved it**: I used cpuSemaphore.acquire() before execution and release() after execution.
 
-**Testing approach**: 
+**Testing approach**: the execution and observed that processes run one at a time not simultaneously
 
-**Time spent**: 
+**Time spent**: 1h
 
 ---
 
