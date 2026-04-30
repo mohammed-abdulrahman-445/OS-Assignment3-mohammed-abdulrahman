@@ -151,7 +151,11 @@ Avoiding nested locks or enforcing a consistent lock ordering]
 
 **Your Answer**:
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+[I used separate locks for each counter (fine-grained locking)
+This is because the three variables (contextSwitchCount, completedProcessCount, and totalWaitingTime) are independent and do not share related data
+This design allows multiple threads to update different counters simultaneously without blocking each other
+The trade-off is that fine-grained locking is more complex to manage and  complexity
+coarse-grained locking is easier but reduces performance due to higher contention.]
 
 ---
 
