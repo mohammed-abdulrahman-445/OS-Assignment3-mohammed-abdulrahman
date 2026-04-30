@@ -164,17 +164,52 @@ coarse-grained locking is easier but reduces performance due to higher contentio
 ### Critical Section #1: Counter Variables
 
 **Which variables**: 
+contextSwitchCount
+completedProcessCount
+totalWaitingTime
+
 
 **Why they need protection**: 
+These variables are shared among multiple threads and are updated concurrently, which can lead to race condition  
 
-**Synchronization mechanism used**: 
+**Synchronization mechanism used**: ReentrantLock was used
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+
+public static final ReentrantLock contextSwitchLock = new ReentrantLock();
+public static final ReentrantLock completedProcessLock = new ReentrantLock();
+public static final ReentrantLock waitingTimeLock = new ReentrantLock();
+
+public static void incrementContextSwitch() {
+    contextSwitchLock.lock();
+    try {
+        contextSwitchCount++;
+    } finally {
+        contextSwitchLock.unlock();
+    }
+}
+
+public static void incrementCompletedProcess() {
+    completedProcessLock.lock();
+    try {
+        completedProcessCount++;
+    } finally {
+        completedProcessLock.unlock();
+    }
+}
+
+public static void addWaitingTime(long time) {
+    waitingTimeLock.lock();
+    try {
+        totalWaitingTime += time;
+    } finally {
+        waitingTimeLock.unlock();
+    }
+}
 ```
 
-**Justification**: 
+**Justification**: Using ReentrantLock ensures that only one thread can modify each variable at a time
 
 ---
 
