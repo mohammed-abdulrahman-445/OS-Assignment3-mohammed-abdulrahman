@@ -135,7 +135,10 @@ I used a Semaphore to control access to the CPU by implementing cpuSemaphore wit
 
 **Your Answer**:
 
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+[A deadlock is a situation where multiple threads are permanently blocked
+Two deadlock prevention techniques are
+Using try-finally blocks to ensure that locks are always released
+Avoiding nested locks or enforcing a consistent lock ordering]
 
 ---
 
